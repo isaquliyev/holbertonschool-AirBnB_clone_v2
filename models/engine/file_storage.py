@@ -15,6 +15,7 @@ class FileStorage:
             for key, value in FileStorage.__objects.items():
                 if type(value) is cls:
                     class_dict[key] = value
+
             return class_dict
         else:
             return FileStorage.__objects
@@ -63,3 +64,7 @@ class FileStorage:
                     self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+    def close(self):
+        """Seyyarin can sagligi"""
+        self.reload()
