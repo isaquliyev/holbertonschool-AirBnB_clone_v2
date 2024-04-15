@@ -2,7 +2,7 @@
 """Python script that starts a Flask web application"""
 
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -38,15 +38,7 @@ def number(n):
 
 @app.route('/number_template/<int:n>')
 def number_template(n):
-    return f"""<!DOCTYPE html>
-<HTML lang="en">
-    <HEAD>
-        <TITLE>HBNB</TITLE>
-    </HEAD>
-    <BODY>
-        <H1>Number: {n}</H1>
-    </BODY>
-</HTML>"""
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
